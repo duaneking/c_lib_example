@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "lib.h"
 
 #define MAX 25
@@ -9,10 +10,8 @@ extern int rand_seed;
 
 int main(int argc, char *argv[])
 {
-    int i,t,x,y;
-
-    /* fill array */
-    for (i=0; i < MAX; i++)
+    /* Act: Fill array. */
+    for (int i=0; i < MAX; i++)
     {
         a[i]=rand();
 
@@ -21,11 +20,26 @@ int main(int argc, char *argv[])
 
     bubble_sort(MAX, a);
 
-    /* print sorted array */
+    /* Arrange/Debug: Print sorted array for debugging. */
     printf("--------------------\n");
 
-    for (i=0; i < MAX; i++){
+    for (int i=0; i < MAX; i++){
         printf("%d\n",a[i]);
+    }
+
+    /* Assert: Validate sorted array. */
+    for (int i=0; i < MAX; i++){
+	int current = a[i];
+	int next = current;
+
+	if( (i + 1) < MAX){
+		next = a[i+1];
+	}
+
+	if( current > next ){
+		printf("%d not sorted\n", current);
+		exit(1);
+	}
     }
 
     return 0;
