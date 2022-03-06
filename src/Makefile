@@ -6,11 +6,17 @@ test: clean-build
 	@echo "[BUILD] C Lib Experiment."
 	chmod 755 main && ./main test
 
-build:
-	@echo "[BUILD] C Lib Experiment."
-	gcc -c -g lib.c -lm
-	gcc -c -g main.c -lm
+main: main.o lib.o
 	gcc -o main main.o lib.o
+
+main.o: main.c lib.h
+	gcc -c -g main.c
+
+lib.o: lib.c lib.o
+	gcc -c -g lib.c
+
+build: main
+	@echo "[BUILD] C Lib Experiment."
 
 clean:
 	@echo "[CLEAN] C Lib Experiment."
