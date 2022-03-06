@@ -5,7 +5,7 @@
 
 int a[MAX];
 
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     int i,t,x,y;
 
@@ -25,4 +25,6 @@ void main(int argc, char *argv[])
     for (i=0; i < MAX; i++){
         printf("%d\n",a[i]);
     }
+
+    return 0;
 }

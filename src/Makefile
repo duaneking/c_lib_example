@@ -18,8 +18,8 @@ clean:
 
 ci: clean-build 
 	@echo "[CI] C Lib Experiment."
+	$(MAKE) test
 	git status
-	$(MAKE) clean
 
 mistakes: clean-build
 	@echo "[MISTAKES] C Lib Experiment."
