@@ -5,6 +5,8 @@
 
 int a[MAX];
 
+extern int rand_seed;
+
 int main(int argc, char *argv[])
 {
     int i,t,x,y;

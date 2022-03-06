@@ -12,7 +12,7 @@ main: main.o lib.o
 main.o: main.c lib.h
 	gcc -c -g main.c
 
-lib.o: lib.c lib.o
+lib.o: lib.c
 	gcc -c -g lib.c
 
 build: main
