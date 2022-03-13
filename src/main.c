@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
         printf("%d\n",a[i]);
     }
 
+    /* Use library call for slow bubble sort. */
     bubble_sort(MAX, a);
 
     /* Arrange/Debug: Print sorted array for debugging. */
@@ -29,17 +30,17 @@ int main(int argc, char *argv[])
 
     /* Assert: Validate sorted array. */
     for (int i=0; i < MAX; i++){
-	int current = a[i];
-	int next = current;
+        int current = a[i];
+        int next = current;
 
-	if( (i + 1) < MAX){
-		next = a[i+1];
-	}
+        if( (i + 1) < MAX){
+            next = a[i+1];
+        }
 
-	if( current > next ){
-		printf("%d not sorted\n", current);
-		exit(1);
-	}
+        if( current > next ){
+            printf("%d not sorted\n", current);
+            exit(1);
+        }
     }
 
     return 0;
